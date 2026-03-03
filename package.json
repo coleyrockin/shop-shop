@@ -1,7 +1,7 @@
 {
   "name": "mern-shopping",
   "version": "1.0.0",
-  "description": "",
+  "description": "MERN stack e-commerce application with GraphQL",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",

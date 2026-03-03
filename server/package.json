@@ -1,7 +1,7 @@
 {
   "name": "mern-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express and Apollo Server backend for Shop-Shop",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
