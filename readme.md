@@ -1,10 +1,10 @@
 # Shop-Shop
 
-![React](https://img.shields.io/badge/React-16.13-61DAFB?style=flat&logo=react&logoColor=white)
-![Apollo Client](https://img.shields.io/badge/Apollo_Client-3-311C87?style=flat&logo=apollographql&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-4-000000?style=flat&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-5.9-47A248?style=flat&logo=mongodb&logoColor=white)
-![GraphQL](https://img.shields.io/badge/GraphQL-15-E10098?style=flat&logo=graphql&logoColor=white)
+![React](https://img.shields.io/badge/React-16.x-61DAFB?style=flat&logo=react&logoColor=white)
+![GraphQL](https://img.shields.io/badge/GraphQL-API-E10098?style=flat&logo=graphql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-5.x-47A248?style=flat&logo=mongodb&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-4.x-000000?style=flat&logo=express&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-Runtime-339933?style=flat&logo=node.js&logoColor=white)
 ![License](https://img.shields.io/badge/License-ISC-blue?style=flat)
 
 ## About
@@ -13,14 +13,13 @@ A full-stack e-commerce application built with the MERN stack and GraphQL. Users
 
 ## Features
 
-- Browse products and filter by category
-- View individual product details with name, description, price, and image
-- User signup and login with JWT-based authentication
-- Persistent shopping cart functionality
-- Checkout and order creation
-- Order history for authenticated users
-- GraphQL API with queries and mutations
-- Database seeding with sample product data
+- **Browse & Filter** — View products and filter by category
+- **Product Details** — Name, description, price, and image for each item
+- **Authentication** — User signup and login with JWT-based authentication
+- **Shopping Cart** — Persistent cart functionality across sessions
+- **Checkout & Orders** — Complete purchases and view order history
+- **GraphQL API** — Queries and mutations for all data operations
+- **Database Seeding** — Sample product and category data included
 
 ## Tech Stack
 
@@ -71,62 +70,4 @@ shop-shop/
 
 ---
 
-> Built by [coleyrockin](https://github.com/coleyrockin)# Shop-Shop
-
-An e-commerce application built with the MERN stack (MongoDB, Express.js, React, Node.js) and GraphQL. Users can browse products by category, view product details, sign up/log in, add items to a cart, and complete purchases with order history tracking.
-
-## Technologies
-
-- **Frontend:** React, Apollo Client, React Router, JWT Decode
-- **Backend:** Node.js, Express.js, Apollo Server Express, MongoDB, Mongoose
-- **Authentication:** JSON Web Tokens (JWT), bcrypt
-
-## Features
-
-- Browse products and filter by category
-- View individual product details (name, description, price, image)
-- User signup and login with JWT-based authentication
-- Shopping cart functionality
-- Checkout and order creation
-- Order history for authenticated users
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/)
-- [MongoDB](https://www.mongodb.com/)
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/coleyrockin/shop-shop.git
-   cd shop-shop
-   ```
-
-2. Install dependencies for both client and server:
-   ```bash
-   npm install
-   ```
-
-3. Seed the database:
-   ```bash
-   npm run seed
-   ```
-
-4. Start the development server:
-   ```bash
-   npm run develop
-   ```
-
-   This runs the Express/GraphQL backend and the React frontend concurrently.
-
-## Usage
-
-- Visit `http://localhost:3000` in your browser for the React frontend.
-- The GraphQL API is available at `http://localhost:3001/graphql`.
-
-## License
-
-ISC
+Built by [Boyd Roberts](https://github.com/coleyrockin)
