@@ -9,11 +9,16 @@ function Success() {
 
   useEffect(() => {
     async function saveOrder() {
+      const checkoutSessionId = new URLSearchParams(window.location.search).get(
+        'session_id'
+      );
       const cart = await idbPromise('cart', 'get');
       const products = cart.map((item) => item._id);
 
-      if (products.length) {
-        const { data } = await addOrder({ variables: { products } });
+      if (products.length && checkoutSessionId) {
+        const { data } = await addOrder({
+          variables: { products, checkoutSessionId },
+        });
         const productData = data.addOrder.products;
 
         productData.forEach((item) => {
