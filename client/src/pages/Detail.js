@@ -18,7 +18,7 @@ function Detail() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
-  const [currentProduct, setCurrentProduct] = useState({});
+  const [currentProduct, setCurrentProduct] = useState(null);
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -27,7 +27,7 @@ function Detail() {
   useEffect(() => {
     // already in global store
     if (products.length) {
-      setCurrentProduct(products.find((product) => product._id === id));
+      setCurrentProduct(products.find((product) => product._id === id) || null);
     }
     // retrieved from server
     else if (data) {
@@ -83,7 +83,7 @@ function Detail() {
 
   return (
     <>
-      {currentProduct && cart ? (
+      {currentProduct && currentProduct._id && cart ? (
         <div className="container my-1">
           <Link to="/">← Back to Products</Link>
 

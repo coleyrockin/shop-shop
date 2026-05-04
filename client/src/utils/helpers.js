@@ -17,7 +17,7 @@ export function idbPromise(storeName, method, object) {
     };
 
     request.onerror = function(e) {
-      console.log('There was an error');
+      reject(new Error('IndexedDB open request failed'));
     };
 
     request.onsuccess = function(e) {
@@ -26,7 +26,7 @@ export function idbPromise(storeName, method, object) {
       store = tx.objectStore(storeName);
 
       db.onerror = function(e) {
-        console.log('error', e);
+        reject(new Error(`IndexedDB transaction error: ${e?.message || 'unknown'}`));
       };
 
       switch (method) {
@@ -42,9 +42,10 @@ export function idbPromise(storeName, method, object) {
           break;
         case 'delete':
           store.delete(object._id);
+          resolve(object);
           break;
         default:
-          console.log('No valid method');
+          reject(new Error(`No valid IndexedDB method: ${method}`));
           break;
       }
 

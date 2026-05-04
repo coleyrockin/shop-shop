@@ -9,7 +9,8 @@ import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 
-const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePublishKey = process.env.REACT_APP_STRIPE_PUBLIC_KEY;
+const stripePromise = stripePublishKey ? loadStripe(stripePublishKey) : null;
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -17,9 +18,11 @@ const Cart = () => {
 
   useEffect(() => {
     if (data) {
-      stripePromise.then((res) => {
-        res.redirectToCheckout({ sessionId: data.checkout.session });
-      });
+      if (stripePromise) {
+        stripePromise.then((res) => {
+          res.redirectToCheckout({ sessionId: data.checkout.session });
+        });
+      }
     }
   }, [data]);
 
@@ -47,6 +50,11 @@ const Cart = () => {
   }
 
   function submitCheckout() {
+    if (!stripePromise) {
+      alert('Checkout is not configured. Contact support to enable payments.');
+      return;
+    }
+
     const productIds = [];
 
     state.cart.forEach((item) => {
@@ -60,21 +68,38 @@ const Cart = () => {
     });
   }
 
+  const cartCount = state.cart.reduce(
+    (total, item) => total + Number(item.purchaseQuantity || 0),
+    0
+  );
+
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
+      <button
+        type="button"
+        className="cart-closed"
+        onClick={toggleCart}
+        aria-expanded="false"
+        aria-label={`Open cart (${cartCount} ${cartCount === 1 ? 'item' : 'items'})`}
+      >
+        <span role="img" aria-hidden="true">
           🛒
         </span>
-      </div>
+        {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+      </button>
     );
   }
 
   return (
-    <div className="cart">
-      <div className="close" onClick={toggleCart}>
-        [close]
-      </div>
+    <div className="cart" role="dialog" aria-label="Shopping cart">
+      <button
+        type="button"
+        className="close"
+        onClick={toggleCart}
+        aria-label="Close cart"
+      >
+        ×
+      </button>
       <h2>Shopping Cart</h2>
       {state.cart.length ? (
         <div>

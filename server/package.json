@@ -1,15 +1,18 @@
 {
-  "name": "mern-server",
+  "name": "shop-shop-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Apollo Server / Express / Mongoose backend for Shop-Shop.",
   "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon",
     "seed": "node config/seeds.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["graphql", "apollo", "mongoose", "express", "stripe"],
+  "author": "Boyd Roberts",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^3.13.0",

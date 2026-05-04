@@ -1,7 +1,10 @@
 {
-  "name": "mern-client",
-  "version": "0.1.0",
+  "name": "shop-shop-client",
+  "version": "1.0.0",
   "private": true,
+  "description": "React + Apollo Client front-end for Shop-Shop.",
+  "author": "Boyd Roberts",
+  "license": "ISC",
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "@apollo/client": "^3.3.7",

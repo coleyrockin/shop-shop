@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-function Login(props) {
+function Login() {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
 
@@ -17,7 +17,7 @@ function Login(props) {
       const token = mutationResponse.data.login.token;
       Auth.login(token);
     } catch (e) {
-      console.log(e);
+      // Surfaced below the form via `error` from useMutation.
     }
   };
 
@@ -42,6 +42,8 @@ function Login(props) {
             name="email"
             type="email"
             id="email"
+            autoComplete="email"
+            required
             onChange={handleChange}
           />
         </div>
@@ -52,6 +54,8 @@ function Login(props) {
             name="password"
             type="password"
             id="pwd"
+            autoComplete="current-password"
+            required
             onChange={handleChange}
           />
         </div>
@@ -61,7 +65,7 @@ function Login(props) {
           </div>
         ) : null}
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <button type="submit">Log in</button>
         </div>
       </form>
     </div>

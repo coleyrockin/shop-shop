@@ -1,18 +1,21 @@
-import React from "react";
-import Jumbotron from "../components/Jumbotron";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Jumbotron from '../components/Jumbotron';
 
 const NoMatch = () => {
   return (
-    <div>
-      <Jumbotron>
-        <h1>404 Page Not Found</h1>
-        <h1>
-          <span role="img" aria-label="Face With Rolling Eyes Emoji">
-            🙄
-          </span>
-        </h1>
-      </Jumbotron>
-    </div>
+    <Jumbotron>
+      <h1>404 — Page not found</h1>
+      <p>
+        <span role="img" aria-label="Looking around">
+          🙄
+        </span>{' '}
+        That page doesn&rsquo;t exist.
+      </p>
+      <p>
+        <Link to="/">← Back to products</Link>
+      </p>
+    </Jumbotron>
   );
 };
 
