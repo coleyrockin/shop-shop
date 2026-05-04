@@ -1,12 +1,15 @@
 const jwt = require('jsonwebtoken');
 
-const secret = 'mysecretsshhhhh';
+const secret = process.env.JWT_SECRET || 'development-secret-change-me';
 const expiration = '2h';
+
+if (process.env.NODE_ENV === 'production' && !process.env.JWT_SECRET) {
+  throw new Error('JWT_SECRET is required in production');
+}
 
 module.exports = {
   authMiddleware: function ({ req }) {
-    // allows token to be sent via req.body, req.query, or headers
-    let token = req.body.token || req.query.token || req.headers.authorization;
+    let token = req.headers.authorization;
 
     // ["Bearer", "<tokenvalue>"]
     if (req.headers.authorization) {
@@ -21,7 +24,7 @@ module.exports = {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch {
-      console.log('Invalid token');
+      // Invalid or expired token — proceed unauthenticated.
     }
 
     return req;

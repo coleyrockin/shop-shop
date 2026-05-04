@@ -1,19 +1,45 @@
 {
-  "name": "mern-shopping",
+  "name": "shop-shop",
   "version": "1.0.0",
-  "description": "MERN stack e-commerce application with GraphQL",
+  "description": "MERN + GraphQL e-commerce demo with Apollo, Stripe Checkout, JWT auth, and an offline-capable cart backed by IndexedDB.",
   "main": "server/server.js",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
+    "setup": "npm install",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "mern",
+    "graphql",
+    "apollo",
+    "stripe",
+    "react",
+    "mongodb",
+    "e-commerce",
+    "portfolio"
+  ],
+  "author": "Boyd Roberts",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coleyrockin/shop-shop.git"
+  },
+  "homepage": "https://github.com/coleyrockin/shop-shop#readme",
+  "bugs": {
+    "url": "https://github.com/coleyrockin/shop-shop/issues"
+  },
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "@eslint/js": "^9.39.4",
+    "concurrently": "^9.0.0",
+    "eslint": "^9.39.4",
+    "prettier": "^3.0.0"
   }
 }

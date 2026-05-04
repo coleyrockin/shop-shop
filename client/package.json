@@ -1,19 +1,24 @@
 {
-  "name": "mern-client",
-  "version": "0.1.0",
+  "name": "shop-shop-client",
+  "version": "1.0.0",
   "private": true,
+  "description": "React + Apollo Client front-end for Shop-Shop.",
+  "author": "Boyd Roberts",
+  "license": "ISC",
   "proxy": "http://localhost:3001/",
   "dependencies": {
     "@apollo/client": "^3.3.7",
+    "@babel/core": "^7.26.10",
+    "@stripe/stripe-js": "^1.42.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "graphql": "^14.6.0",
+    "graphql": "^15.8.0",
     "jwt-decode": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^6.4.2",
+    "react-scripts": "^5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

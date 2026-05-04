@@ -1,0 +1,111 @@
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  min-width: 20%;
+  max-width: 30%;
+  max-height: 60%;
+  background-color: var(--light);
+  overflow: auto;
+  padding: .5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
+  border-bottom-left-radius: .5rem;
+}
+
+.cart h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--dark);
+  padding-bottom: .5rem;
+  margin: 1rem 0;
+}
+
+.cart .close {
+  position: absolute;
+  top: .25rem;
+  right: .5rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--tertiary);
+}
+
+.cart .close:hover,
+.cart .close:focus-visible {
+  background-color: rgba(0, 0, 0, 0.06);
+  outline: none;
+}
+
+.cart-closed {
+  position: fixed;
+  top: 2%;
+  right: 1%;
+  width: 56px;
+  height: 56px;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  background-color: var(--secondary);
+  color: var(--dark);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-closed:hover,
+.cart-closed:focus-visible {
+  transform: scale(1.06);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.24);
+  outline: none;
+}
+
+.cart-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--light);
+  background-color: var(--tertiary);
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart img {
+  width: 70px;
+  margin-right: 1rem;
+}
+
+.cart input {
+  width: 50px;
+  padding: 0;
+  margin: 0 .5rem 1rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .cart {
+    position: relative;
+    max-width: 100%;
+    max-height: auto;
+    box-shadow: none;
+    background-color: inherit;
+  }
+
+  .cart-closed {
+    position: relative;
+    margin: 0 auto;
+  }
+}
